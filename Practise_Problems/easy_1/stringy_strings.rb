@@ -22,3 +22,20 @@ puts stringy(4) == '1010'
 puts stringy(7) == '1010101'
 
 # -------------------------------------
+
+# alternative method
+def stringy(num)
+
+	stringy_str = ''
+
+	num.times do |index|
+		if index.odd?
+			stringy_str << '0'
+		else index.even?
+			stringy_str << '1'
+		end
+	end
+	stringy_str
+end
+
+puts stringy(9)

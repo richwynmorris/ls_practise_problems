@@ -1,14 +1,8 @@
-# def palindrome?(str)
-#   str == str.chars.reverse.join
-# end
+def palindrome?(str)
+  str == str.chars.reverse.join
+end
 
-# # p palindrome?('madam')
-# # p palindrome?('Madam')
-# # p palindrome?("madam i'm adam")
-# # p palindrome?('356653')
-
-
-def remove_uniq_items(str)
+def real_palindrome?(str)
   letters = ('a'..'z').to_a
   caps = ('A'..'Z')
   nums = (1..9).to_a
@@ -18,11 +12,19 @@ def remove_uniq_items(str)
   arr = str.chars
 
   arr.select! do |letter|
-    letters.include?(letter) || caps.include?(letter) || nums.include?(letter) || space.include?(letter)
+    letters.include?(letter) || caps.include?(letter) || nums.include?(letter)
   end
 
-  p arr.join
+  palindrome = arr.join.downcase
+
+  palindrome?(palindrome)
 end
 
-remove_uniq_items("Hi there, my name's Richard.")
+p real_palindrome?('madam')  #== true
+p real_palindrome?('Madam') #== true           # (case does not matter)
+p real_palindrome?("Madam, I'm Adam") #== true # (only alphanumerics matter)
+p real_palindrome?('356653') #== true
+p real_palindrome?('356a653') #== true
+p real_palindrome?('123ab321') #== false
+
 

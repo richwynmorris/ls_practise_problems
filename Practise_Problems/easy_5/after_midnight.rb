@@ -24,49 +24,46 @@
 #		 You may not use ruby's Date and Time classes.
 
 # Algorithim 
-# The method time_of_day is defined and intialiazed within the program.
-# time_of_day has one parameter which is int.
-# The variable hh is initalialized and assigned the value of 0
-# The variable mm is initalialized and assigned the value of 0 
-# Define method check_mm
+Initalize local variable HOURS_IN_DAY and assign it with the value 
+of 24 as an integer object.
+Initalize local variable MINUTES_PER_DAY and assign it with the value
+of 60 as an integer object.
+Initalize the variable MINUTES_PER_DAY and assign it the return value
+of HOURS_IN_DAY multiplied by MINUTES_IN_HOUR.
+Define the method time_of_day and intialize tha paramter int.
+Initalize the variable time_remainder and assign it
+the value of the time remaining after the int modulo has been caluculated.
+using MINUTES_PER_DAY.
+E.g 1440 cannot go into 120, therefore 120 is returned as 1440 goes into
+120 0 times. 
+two local variables are intialized within the method hours and minutes.
+They are assigned the return values of the divmod method when invoked on
+the time_remainder variable.
+hours = 120 / 60 = 2 
+minutes = 0 / 60 = 0
+The format method is then invoked and passes the arguments (hours, minutes)
+to the format_string. In this case 2 and 0. 
+This then returns a string with the arguments formatted correctly
+to represent a digital clock time. 
 
 
+HOURS_IN_DAY = 24
 
-def calculate_hh(num, hh)
+MINUTES_IN_HOUR = 60
 
-	num_of_hours = num / 60
-
-	hh =+ num_of_hours
-
-	return hh
-end
-
-
-def calculate_mm(num, mm)
-	minute_remainder = num % 60
-
-	mm =+ minute_remainder
-
-	return mm
-end
-
+MINUTES_PER_DAY = HOURS_IN_DAY * MINUTES_IN_HOUR
 
 def time_of_day(int)
 
-	hh = 0
-	mm = 0
-	
-	calculate_hh(int, hh)
-	calculate_mm(int, mm)
+	time_remainder = int % MINUTES_PER_DAY
 
-	if hh < 10 && mm < 10
-		puts "0#{hh}:0#{mm}"
-	else
-		puts "#{hh}:#{mm}}"
-	end
+	hours, minutes = time_remainder.divmod(MINUTES_IN_HOUR)
+
+	format('%02d:%02d', hours, minutes)
+
 end 
 
-time_of_day(120)
+puts time_of_day(120)
 
 # need to work out how to update mm and hh values. 
 

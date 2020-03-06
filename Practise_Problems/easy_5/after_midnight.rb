@@ -65,5 +65,20 @@ end
 
 puts time_of_day(120)
 
-# need to work out how to update mm and hh values. 
 
+
+#Further exploration:
+
+SECONDS_PER_MIN = 60
+
+def time_and_day(int)
+
+	current_time = Time.new(2020, 3, 8)
+
+	updated_time = current_time + (int * SECONDS_PER_MIN)
+
+	puts updated_time.strftime('%H:%M %A')
+
+end
+
+time_and_day(-4231)

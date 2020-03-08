@@ -38,12 +38,35 @@ def after_midnight(delt_time)
 
 end
 
-puts after_midnight('00:00')
+p after_midnight('00:00') == 0
+p after_midnight('12:34') == 754
+p after_midnight('24:00') == 0
 
 
 # Before Midnight:
 
-# def before_midnight(delt_time)
-	
+def before_midnight(delt_time)
 
-# end
+	hours_minutes_arr = delt_time.split(':')
+
+	hours_minutes_arr.map! do |num|
+		num.to_i
+	end
+
+	if hours_minutes_arr[0].to_i <= 23 
+		total_mins = (hours_minutes_arr[0] * 60) + hours_minutes_arr[1]
+		if total_mins > 0
+			before_midnight = 1440 - total_mins
+			return before_midnight
+		else
+			return 0
+		end
+	else
+		return 0
+	end
+
+end
+
+p before_midnight('00:00') == 0
+p before_midnight('12:34') == 686
+p before_midnight('24:00') == 0

@@ -35,4 +35,3 @@ def string_to_signed_integer(str)
 end 
 
 string_to_signed_integer('+570')
-

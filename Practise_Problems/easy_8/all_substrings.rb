@@ -2,8 +2,6 @@
 def substrings(str)
   new_arr = []
 
-  index = 0
-
   loop do 
   	break if str.chars.empty?
   	1.upto(str.length) do |num|

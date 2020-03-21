@@ -2,12 +2,10 @@
 def center_of(str)
 
 	if str.length.odd? 
-		str_length = str.length
-		halfway = str_length / 2
+		halfway = str.length / 2
 		str[halfway]
 	elsif str.length.even?
-		str_length = str.length
-		halfway = (str_length / 2) - 1
+		halfway = (str.length / 2) - 1
 		str[halfway].concat(str[halfway + 1])
 	end
 

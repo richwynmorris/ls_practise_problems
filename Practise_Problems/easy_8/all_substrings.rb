@@ -5,7 +5,7 @@ def substrings(str)
   loop do 
   	break if str.chars.empty?
   	1.upto(str.length) do |num|
-  		new_arr << str.slice(index, num)
+  		new_arr << str.slice(0, num)
   	end
   	str.delete!(str[0])
   end

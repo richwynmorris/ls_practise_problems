@@ -10,10 +10,18 @@
 # return new array or original array ?
 
 # PSEUDOCODE:
+# define a method called buy_fruit with one parameter nested_arr
+# invoke the .map method to iterate through each arr and pass the items
+# of each arr to the block, the set being assigned to the paramenter fruit,
+# the second the parameter num. 
+# within the block have the fruit argument inseted within and arr and * this
+# by the value attached to the num parameter. 
+# invoke the .flatten method to revome the nested array so the arr is all on 
+# the same level of abstraction. 
 
 def buy_fruit(nested_arr)
 
-	nested_arr.map {|fruit, num| [fruit] * num }.flatten\
+	nested_arr.map {|fruit, num| [fruit] * num }.flatten!
 
 end
 

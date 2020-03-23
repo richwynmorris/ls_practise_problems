@@ -26,7 +26,7 @@ def rotate_array(arr)
 	arr_slice = arr[1..-1]
 	first_element = arr[0]
 	arr_slice << first_element
-	arr_slice.flatten.uniq
+	arr_slice.flatten
 
 end 
 

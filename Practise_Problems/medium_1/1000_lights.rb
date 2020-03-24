@@ -27,7 +27,7 @@ def one_thousand_lights(n)
 end	
 
 p one_thousand_lights(5)
-p one_thousand_lights(5)
+p one_thousand_lights(10)
 
 #PSEUDOCODE
 

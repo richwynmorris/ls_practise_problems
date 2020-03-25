@@ -1,3 +1,5 @@
+AUTH_COMMANDS = ['PUSH', 'POP', 'PRINT', 'MULT', 'ADD', 'DIV', 'SUB', 'MOD']
+
 def print_reg(current_reg)
 	puts "#{current_reg}"
 end
@@ -30,6 +32,17 @@ def sub_pop_with_reg(current_reg, stack)
 	current_reg.replace (current_reg.to_i - stack.pop.to_i).to_s
 end
 
+def detect_invalid_token(string_arr, invalid_tokens)
+
+	string_arr.each do |item|
+		if AUTH_COMMANDS.include?(item) == false && item != item.to_i.to_s
+			invalid_tokens << item
+		end
+	end
+
+		puts "Invalid token detected." if invalid_tokens.empty? == false
+			
+end
 
 
 def minilang(str)
@@ -38,27 +51,33 @@ def minilang(str)
 
 	stack = []
 
+	invalid_tokens = []
+
 	register = '0'
 
-	str_arr.each do |current_command|
-		if current_command == current_command.to_i.to_s
-			register.replace current_command
-		elsif current_command == 'PRINT'
-			print_reg(register)
-		elsif current_command == 'PUSH'
-			push_reg(register, stack)
-		elsif current_command == 'MULT'
-			multiply_pop_with_reg(register, stack)
-		elsif current_command == 'ADD'
-			add_pop_with_reg(register, stack)
-		elsif current_command == 'POP'
-			pop_from_stack(register, stack)
-		elsif current_command == 'DIV'
-			divide_pop_with_reg(register, stack)
-		elsif current_command == 'MOD'
-			mod_pop_with_reg(register, stack)
-		elsif current_command == 'SUB'
-			sub_pop_with_reg(register, stack)
+	detect_invalid_token(str_arr, invalid_tokens)
+
+	if invalid_tokens.empty? 
+		str_arr.each do |current_command|
+			if current_command == current_command.to_i.to_s
+				register.replace current_command
+			elsif current_command == 'PRINT'
+				print_reg(register)
+			elsif current_command == 'PUSH'
+				push_reg(register, stack)
+			elsif current_command == 'MULT'
+				multiply_pop_with_reg(register, stack)
+			elsif current_command == 'ADD'
+				add_pop_with_reg(register, stack)
+			elsif current_command == 'POP'
+				pop_from_stack(register, stack)
+			elsif current_command == 'DIV'
+				divide_pop_with_reg(register, stack)
+			elsif current_command == 'MOD'
+				mod_pop_with_reg(register, stack)
+			elsif current_command == 'SUB'
+				sub_pop_with_reg(register, stack)
+			end
 		end
 	end
 
@@ -99,5 +118,10 @@ minilang('-3 PUSH 5 SUB PRINT')
 # 8
 
 minilang('6 PUSH')
+
+minilang('')
+
+p minilang('6 PUSH HELLO')
+
 
 

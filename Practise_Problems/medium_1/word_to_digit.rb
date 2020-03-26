@@ -1,18 +1,14 @@
 def word_to_digit(str)
-	str.scan(/[\w]+|[[:punct:]]/).map do |word|
-		case word
-		when /one/ then '1'
-		when /two/ then '2'
-		when /three/ then '3'
-		when /four/ then '4'
-		when /five/ then '5'
-		when /six/ then '6'
-		when /seven/ then '7'
-		when /eight/ then '8'
-		when /nine/ then '9'
-		else word
-		end
-	end.join(' ')
+
+	words_to_num = {'one' => '1', 'two' => '2', 'three' => '3', 'four' => '4',
+					'five' => '5', 'six' => '6', 'seven' => '7', 'eight' => '8',
+					'nine' => '9', 'zero' => '0'}
+
+	words_to_num.keys.each do |word|
+		str.gsub!(/\b#{word}\b/, words_to_num[word])
+	end 
+
+	str
 
 end 
 

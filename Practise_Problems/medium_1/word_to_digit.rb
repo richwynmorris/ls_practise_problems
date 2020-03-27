@@ -8,7 +8,7 @@ def word_to_digit(str)
 		str.gsub!(/\b#{word}\b/, words_to_num[word])
 	end 
 
-	str
+	str.gsub!(/(\d)\s(?=\d)/,  '\1')
 
 end 
 

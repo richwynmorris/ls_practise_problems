@@ -1,6 +1,5 @@
 
 def triangle(ang1, ang2, ang3)
-
 	angles = [ang1, ang2, ang3]
 
 	if angles.sum != 180 || angles.any?(0)

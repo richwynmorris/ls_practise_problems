@@ -1,5 +1,3 @@
-#!/usr/bin/ruby
-
 def featured(num)
 
 	f_num = num + 1

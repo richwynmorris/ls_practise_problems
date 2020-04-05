@@ -1,9 +1,9 @@
 txt = File.read('mad_libs_txt.txt').split(/[\s]/)
 
 ADJ = ['blue', 'hot', 'yellow', 'sleepy', 'loud', 'sweet']
-ADV = ['noisily', 'lazily', 'hurridly', 'quickly', 'slowly']
+ADV = ['noisily', 'lazily', 'quickly', 'slowly']
 N = ['cat', 'cow', 'cucumber', 'potato', 'Joe Exotic']
-V = ['licks', 'looks', 'hums', 'dances']
+V = ['licks', 'jumps', 'hums', 'dances']
 
 txt.each do |word|
 	if word.match? (/adjective/)

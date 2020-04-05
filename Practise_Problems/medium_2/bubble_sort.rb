@@ -1,18 +1,15 @@
 def bubble_sort!(arr)
-	
-	track_arr = arr
-	index = 0
-
-	loop do 
-		break if track_arr == arr.sort!
-
-		if arr[index] > arr[(index + 1)]
-			arr[index] = track_arr[(index + 1)]
-			arr[(index + 1)] = track_arr[index]
-			track_arr = arr
-			index += 1
-		elsif arr[index] == arr[(index + 1)] || arr[index] < arr[(index + 1)]
-			index += 1
+	loop do
+		index = 0
+		break if arr == arr.sort
+		loop do
+			break if index == arr.length - 1
+			if arr[index] > arr[index + 1]
+				arr[index], arr[index + 1] = arr[index + 1], arr[index]
+				index += 1
+			elsif arr[index] == arr[index + 1] || arr[index] < arr[index + 1]
+				index += 1
+			end
 		end
 	end
 	arr

@@ -84,7 +84,7 @@ puts tfidf("some", document3, documents) # ~ 0.4
 #   Math.log(number_of_documents.to_f / number_of_documents_with_term.to_f)
 # end
 
-# # I also formatted the final result using stringtf to return the result withing one decimal place:
+# # I also formatted the final result using sprintf to return the result within one decimal place:
 # def tfidf(term, document, documents)
 #   result = tf(term, document) * idf(term, documents)
 #   return sprintf('%.1f', result)
